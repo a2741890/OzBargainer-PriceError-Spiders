@@ -98,4 +98,4 @@ CRAWL_LENGTH = 100
 TARGET_WORDS = ["price error", "listing error", "error", "glitch"]
 
 GMAIL_USER = 'a2741890@gmail.com'
-GMAIL_PASSWORD = 'zlkxdpqembfaluti'
+GMAIL_PASSWORD = 'PASSWORD'

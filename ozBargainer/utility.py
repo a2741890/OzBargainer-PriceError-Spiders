@@ -20,7 +20,7 @@ class Utility(object):
                 target_comment = ''
                 line_dict = literal_eval(line)
 
-                if (time.time() - line_dict['time']) > 300:
+                if (time.time() - line_dict['time']) < 300:
                     print('Processing data')
                     for target in TARGET_WORDS:
                         target_comment += "\n".join(list(el for el in (line_dict['post'] + line_dict['content']) if target in el))
