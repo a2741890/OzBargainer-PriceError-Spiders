@@ -1,0 +1,37 @@
+from twisted.internet import reactor
+from scrapy.crawler import CrawlerRunner
+from scrapy.utils.project import get_project_settings
+from ozBargainer.settings import TARGET_WORDS
+from ozBargainer.utility import Utility
+from ozBargainer.spiders.ozBargainer import OzBargainerSpider
+
+
+sleep_interval = 300
+
+def crawl_job():
+    print('Start crawling...')
+    settings = get_project_settings()
+    print(settings)
+    print('Search for words: %s' % ", ".join(TARGET_WORDS))
+    runner = CrawlerRunner(settings)
+    return runner.crawl(OzBargainerSpider)
+
+def after_crawl(null):
+    print('Crawling finished...')
+    Utility.sendMailToUser()
+    print('Waiting for next crawling...')
+    reactor.callLater(sleep_interval, crawl)
+
+def crawl():
+    d = crawl_job()
+    d.addCallback(after_crawl)
+    d.addErrback(catch_error)
+
+def catch_error(failure):
+    print(failure.value)
+
+
+if __name__ == "__main__":
+    crawl()
+    reactor.run()
+
