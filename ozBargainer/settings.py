@@ -92,7 +92,7 @@ ITEM_PIPELINES = {
 # FEED_URI = "./output.txt"
 
 # Crawling length
-CRAWL_LENGTH = 100
+CRAWL_LENGTH = 30
 
 # Target words for crawling
 TARGET_WORDS = ["price error", "listing error", "error", "glitch"]

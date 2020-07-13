@@ -4,14 +4,15 @@ from scrapy.utils.project import get_project_settings
 from ozBargainer.settings import TARGET_WORDS
 from ozBargainer.utility import Utility
 from ozBargainer.spiders.ozBargainer import OzBargainerSpider
+import datetime
 
 
 sleep_interval = 300
 
 def crawl_job():
     print('Start crawling...')
+    print(datetime.datetime.now())
     settings = get_project_settings()
-    print(settings)
     print('Search for words: %s' % ", ".join(TARGET_WORDS))
     runner = CrawlerRunner(settings)
     return runner.crawl(OzBargainerSpider)
