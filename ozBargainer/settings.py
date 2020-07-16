@@ -95,7 +95,7 @@ ITEM_PIPELINES = {
 CRAWL_LENGTH = 30
 
 # Target words for crawling
-TARGET_WORDS = ["price error", "listing error", "error", "glitch"]
+TARGET_WORDS = ["price error", "listing error", "glitch", "glitches", "list error", "pricing error"]
 
 GMAIL_USER = 'a2741890@gmail.com'
 GMAIL_PASSWORD = 'PASSWORD'

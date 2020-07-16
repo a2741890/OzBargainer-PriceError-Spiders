@@ -25,7 +25,7 @@ class OzbargainerPipeline(object):
 
     def process_item(self, item, spider):
 
-        total_texts = " ".join(item['post']) + " " + " ".join(item['content'])
+        total_texts = " ".join(item['post']) + " " + " ".join(item['content']) + " ".join((item['title']))
         target_included = []
         for target in TARGET_WORDS:
             target_included.append(target in total_texts)

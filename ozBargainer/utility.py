@@ -23,8 +23,10 @@ class Utility(object):
                 if (time.time() - line_dict['time']) < 300:
                     print('Processing data')
                     for target in TARGET_WORDS:
-                        target_comment += "\n".join(list(el for el in (line_dict['post'] + line_dict['content']) if target in el))
+                        target_comment += "\n".join(list('  -' + el + '\n' for el in (line_dict['post'] + line_dict['content']) if target in el))
                         target_comment = target_comment.replace(target, '____ %s ____' % target)
+                        if target in line_dict['title']:
+                            line_dict['title'] = line_dict['title'].replace(target, '____ %s ____' % target)
                     # post = "\n".join(line_dict["post"])
                     message += 'Title: %s \nComment: \n%s \nLink: %s \n\n' % (
                     line_dict['title'], target_comment, line_dict['url'])
