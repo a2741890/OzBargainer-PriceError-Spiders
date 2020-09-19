@@ -25,7 +25,7 @@ class OzbargainerPipeline(object):
 
     def process_item(self, item, spider):
 
-        total_texts = " ".join(item['post']) + " " + " ".join(item['content']) + " ".join((item['title']))
+        total_texts = " ".join(item['post']) + " " + " ".join(item['content']) + " ".join((item['title'])).lower()
         target_included = []
         for target in TARGET_WORDS:
             target_included.append(target in total_texts)
@@ -38,7 +38,7 @@ class OzbargainerPipeline(object):
             for line in lines:
                 list_read.append(literal_eval(line))
 
-        if not any(d['title'] == item['title'] for d in list_read) and target_included:
+        if not any(str(d['node']) == str(item['node']) for d in list_read) and target_included:
             print('Match found...')
             line = json.dumps(dict(item)).replace('\\u', '/') + "\n"
         else:

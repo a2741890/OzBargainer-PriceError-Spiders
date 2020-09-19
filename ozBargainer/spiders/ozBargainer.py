@@ -24,15 +24,17 @@ class OzBargainerSpider(scrapy.Spider):
         for i in range(CRAWL_LENGTH):
             time.sleep(1)
             url = 'https://www.ozbargain.com.au/node/' + str(int(first_post) - i)
-            yield scrapy.Request(url, callback=self.parse_comment, meta={'url': url, 'id': str(int(first_post) - i)})
+            yield scrapy.Request(url, callback=self.parse_comment, meta={'url': url, 'node': str(int(first_post) - i)})
 
     def parse_comment(self, response):
         target = response.css('div#main.main')
         item = OzbargainerItem()
         url = response.meta.get('url')
+        node = response.meta.get('node')
 
         for tag in target:
             try:
+                item['node'] = node
                 item['title'] = tag.css('div#main.main h1::attr(data-title)').extract_first()
                 item['post'] = tag.css('div.node.node-ozbdeal div.content p::text').extract()
                 item['content'] = tag.css('div.comment div.n-right div.content p::text').extract()

@@ -18,18 +18,18 @@ class Utility(object):
             lines = f.readlines()
             for line in lines:
                 target_comment = ''
-                line_dict = literal_eval(line)
+                line_dict = literal_eval(line.lower())
 
-                if (time.time() - line_dict['time']) < 300:
+                if (time.time() - line_dict['time']) < 120:
                     print('Processing data')
                     for target in TARGET_WORDS:
-                        target_comment += "\n".join(list('  -' + el + '\n' for el in (line_dict['post'] + line_dict['content']) if target in el))
+                        target_comment += "\n".join(list('  - ' + el.capitalize() + '\n' for el in (line_dict['post'] + line_dict['content']) if target in el))
                         target_comment = target_comment.replace(target, '____ %s ____' % target)
                         if target in line_dict['title']:
                             line_dict['title'] = line_dict['title'].replace(target, '____ %s ____' % target)
                     # post = "\n".join(line_dict["post"])
                     message += 'Title: %s \nComment: \n%s \nLink: %s \n\n' % (
-                    line_dict['title'], target_comment, line_dict['url'])
+                    line_dict['title'].capitalize(), target_comment, line_dict['url'])
                 else:
                     message += ''
                 continue
@@ -45,10 +45,11 @@ class Utility(object):
         settings = get_project_settings()
         gmailUser = settings['GMAIL_USER']
         gmailPassword = settings['GMAIL_PASSWORD']
+        recipients = settings['RECIPIENTS']
 
         msg = MIMEMultipart()
         msg['From'] = gmailUser
-        msg['To'] = gmailUser
+        msg['To'] = ", ".join(recipients)
         msg['Subject'] = title
         msg.attach(MIMEText(message))
 
@@ -57,6 +58,6 @@ class Utility(object):
         mailServer.starttls()
         mailServer.ehlo()
         mailServer.login(gmailUser, gmailPassword)
-        mailServer.sendmail(gmailUser, gmailUser, msg.as_string())
+        mailServer.sendmail(gmailUser, recipients, msg.as_string())
         mailServer.close()
         print("Mail sent")

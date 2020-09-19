@@ -7,7 +7,7 @@ from ozBargainer.spiders.ozBargainer import OzBargainerSpider
 import datetime
 
 
-sleep_interval = 300
+sleep_interval = 120
 
 def crawl_job():
     print('Start crawling...')

@@ -92,10 +92,11 @@ ITEM_PIPELINES = {
 # FEED_URI = "./output.txt"
 
 # Crawling length
-CRAWL_LENGTH = 30
+CRAWL_LENGTH = 40
 
 # Target words for crawling
-TARGET_WORDS = ["price error", "listing error", "glitch", "glitches", "list error", "pricing error"]
+TARGET_WORDS = ["price error", "listing error", "glitch", "glitches", "list error", "pricing error", "good deal"]
 
 GMAIL_USER = 'a2741890@gmail.com'
-GMAIL_PASSWORD = 'PASSWORD'
+GMAIL_PASSWORD = 'xagyryrqznkdpqgx'
+RECIPIENTS = ['a2741890@gmail.com', 'andysamguy@gmail.com']
