@@ -12,15 +12,15 @@ The project is built by using Scrapy and uploaded to AWS EC2 instance (Ubuntu).
 By using Screen (terminal multiplexer), the spider runs every 5 minutes on the cloud even the local ssh connection is terminated.  
 https://github.com/a2741890/OzBargainer-PriceError-Spiders/blob/main/bash1.png
 ![alt text](https://github.com/a2741890/OzBargainer-PriceError-Spiders/blob/main/bash1.png)  
-![alt text](https://github.com/a2741890/OzBargainer-PriceError-Spiders/blob/master/bash2.png?raw=true)  
+![alt text](https://github.com/a2741890/OzBargainer-PriceError-Spiders/blob/main/bash2.png)  
   
   
   
-![alt text](https://github.com/a2741890/OzBargainer-PriceError-Spiders/blob/master/gmail1.PNG?raw=true)  
+![alt text](https://github.com/a2741890/OzBargainer-PriceError-Spiders/blob/main/gmail1.PNG)  
   
   
   
 The keywords will be highlighted with \_\_\_keyword___  
-![alt text](https://github.com/a2741890/OzBargainer-PriceError-Spiders/blob/master/gmail2.PNG?raw=true)  
+![alt text](https://github.com/a2741890/OzBargainer-PriceError-Spiders/blob/main/gmail2.PNG)  
 
 
