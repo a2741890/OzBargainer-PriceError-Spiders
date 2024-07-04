@@ -10,8 +10,8 @@ python3 ./routine.py
 ## Example
 The project is built by using Scrapy and uploaded to AWS EC2 instance (Ubuntu).
 By using Screen (terminal multiplexer), the spider runs every 5 minutes on the cloud even the local ssh connection is terminated.  
-
-![alt text](https://github.com/a2741890/OzBargainer-PriceError-Spiders/blob/master/bash1.png?raw=true)  
+https://github.com/a2741890/OzBargainer-PriceError-Spiders/blob/main/bash1.png
+![alt text](https://github.com/a2741890/OzBargainer-PriceError-Spiders/blob/main/bash1.png)  
 ![alt text](https://github.com/a2741890/OzBargainer-PriceError-Spiders/blob/master/bash2.png?raw=true)  
   
   
